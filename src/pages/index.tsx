@@ -1,16 +1,14 @@
 import { Post, HomeProps } from '@/lib/types'
 import PostsList from '@/components/PostsList'
+import SearchInput from '@/components/SearchInput'
 
 export default function Home({ posts, isError }: HomeProps) {
   return (
     <main className="container mx-auto mt-6">
-      <h1 className="text-xl font-bold text-center mb-8">
-        Welcome to My Blog
-      </h1>
-
-      {/* <SearchInput /> */}
-
-      { isError
+      <h1 className="text-xl font-bold text-center mb-8">Welcome to My Blog</h1>
+      <SearchInput />
+      {
+        isError
         ? <div className='text-center text-gray-700'>Failed to fetch blog posts</div>
         : <PostsList posts={posts} />
       }
@@ -27,11 +25,13 @@ export async function getServerSideProps() {
   }
   try {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    // TODO: save result to Redux state posts
     const data: Post[] = await res.json()
     response.props.posts = data
     response.props.isError = false
     return response
   } catch {
+    // TODO: add redux isLoading, isError
     response.props.posts = []
     response.props.isError = true
     return response

@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Demo
+
+[blog.webm](https://github.com/vedanta1097/blog-react-redux/assets/17045245/6a87f0f4-43a4-4243-af59-375b5abfdaf5)
 
 ## Getting Started
 
